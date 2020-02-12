@@ -13,7 +13,7 @@ namespace MathWiz.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult ViewAssignments()
         {
             ViewBag.Message = "Your application description page.";
 
