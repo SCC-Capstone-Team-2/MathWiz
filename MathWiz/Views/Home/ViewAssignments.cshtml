@@ -5,16 +5,14 @@
 <h3>@ViewBag.Message</h3>
 
 
-@{ var assignments = new List<String>() { "Assignment 1", "Assignment 2", "Assignment 3" };
-    foreach (string assignment in assignments)
+@{ var assignments = new List<String>() { "Assignment 1", "Assignment 2", "Assignment 3" }; }
+
+
+    @foreach (string assignment in assignments)
     {
-        <p>
-            <a href="http://localhost:57168/Home/TakeAssignment">@assignment</a>
-        </p>
-
-        
-
-
+    <p>
+         @Html.ActionLink(@assignment, "TakeAssignment", new { assignmentName = assignment } )
+    </p>
     }
     
-}
+
