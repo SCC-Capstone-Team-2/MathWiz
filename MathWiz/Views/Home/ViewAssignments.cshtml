@@ -4,4 +4,17 @@
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
+
+@{ var assignments = new List<String>() { "Assignment 1", "Assignment 2", "Assignment 3" };
+    foreach (string assignment in assignments)
+    {
+        <p>
+            <a href="http://localhost:57168/Home/TakeAssignment">@assignment</a>
+        </p>
+
+        
+
+
+    }
+    
+}

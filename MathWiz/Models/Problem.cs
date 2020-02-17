@@ -11,5 +11,29 @@ namespace MathWiz.Models
         public double firstNumber { get; set; }
         public double secondNumber { get; set; }
         public bool correct { get; set; }
+
+        public double AddNumbers(double number1, double number2)
+        {
+            double result = number1 + number2;
+            return result;
+        }
+  
+        public double SubtractNumbers(double number1, double number2)
+        {
+            double result = number1 - number2;
+            return result;
+        }
+
+        public double MultiplyNumbers(double number1, double number2)
+        {
+            double result = number1 * number2;
+            return result;
+        }
+
+        public double DivideNumbers(double number1, double number2)
+        {
+            double result = number1 / number2;
+            return result;
+        }
     }
 }
