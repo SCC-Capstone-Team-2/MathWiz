@@ -20,7 +20,7 @@ namespace MathWiz.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult TakeAssignment()
         {
             ViewBag.Message = "Your contact page.";
 
