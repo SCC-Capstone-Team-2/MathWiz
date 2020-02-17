@@ -7,5 +7,6 @@ namespace MathWiz.Models
 {
     public class Assignment
     {
+
     }
 }
