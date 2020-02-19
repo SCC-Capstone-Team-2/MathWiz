@@ -1,7 +1,57 @@
 ﻿
 @{
-    ViewBag.Title = "CreateAssignment";
+    ViewBag.Title = "Create Assignment";
 }
+<h2>Create Assignment</h2>
+                        
+<form action="">
+    <label for="aName">Assignment Name: </label><br>
+    <input type="text" id="aName" name="aName" placeholder="Assignment 1"><br><br>
+    <label for="aType">Assignment Type: </label><br>
 
-<h2>CreateAssignment</h2>
+    <input type="radio" id="add" name="operator" value="1">
+    <label for="add">Addition</label><br>
+    <input type="radio" id="sub" name="operator" value="2">
+    <label for="sub">Subtraction</label><br>
+    <input type="radio" id="mult" name="operator" value="3">
+    <label for="mult">Multiplication</label><br>
+    <input type="radio" id="div" name="operator" value="4">
+    <label for="div">Division</label><br><br>
+
+
+    @*<label for="pText">Problem Text: </label><br>
+    <input type="text" id="pText" name="pText" placeholder="1+1"><br>
+    <label for="pAnswer">Problem Answer: </label><br>
+    <input type="text" id="pAnswer" name="pAnswer" placeholder="2"><br><br>*@
+    <input type="submit" value="Create Assignment">
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
