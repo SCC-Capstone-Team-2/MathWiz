@@ -31,8 +31,7 @@ namespace MathWiz.Controllers
 
         public ActionResult CreateAssignment()
         {
-            List<Assignment> assignments = AssignmentEndpoint.GetAllAssignments();
-            return View(assignments);
+            return View();
         }
     }
 }
