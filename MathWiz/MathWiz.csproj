@@ -150,11 +150,13 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="Data\AssignmentEndpoint.cs" />
+    <Compile Include="Data\GradeEndpoint.cs" />
     <Compile Include="Data\StudentEndpoint.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Assignment.cs" />
+    <Compile Include="Models\Grade.cs" />
     <Compile Include="Models\Problem.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\Teacher.cs" />
