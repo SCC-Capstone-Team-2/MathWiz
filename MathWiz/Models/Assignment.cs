@@ -32,7 +32,7 @@ namespace MathWiz.Models
             decimal percentage = 0.00m;
             foreach (Problem problem in this.Problems)
             {
-                if (problem.correct)
+                if (problem.Correct)
                 {
                     correctProblems++;
                 }

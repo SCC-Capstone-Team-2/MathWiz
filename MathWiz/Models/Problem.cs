@@ -7,33 +7,31 @@ namespace MathWiz.Models
 {
     public class Problem
     {
-        public double product { get; set; }
-        public double firstNumber { get; set; }
-        public double secondNumber { get; set; }
-        public bool correct { get; set; }
+        public string Answer { get; set; }
+        public string Question { get; set; }
+        public int Type { get; set; }
+        public bool Correct { get; set; }
+        public bool Graded { get; set; }
 
-        public double AddNumbers(double number1, double number2)
+        public Problem(string question, string answer, int type)
         {
-            double result = number1 + number2;
-            return result;
-        }
-  
-        public double SubtractNumbers(double number1, double number2)
-        {
-            double result = number1 - number2;
-            return result;
+            this.Question = question;
+            this.Answer = answer;
+            this.Type = type;
+            this.Graded = false;
         }
 
-        public double MultiplyNumbers(double number1, double number2)
+        public void Grade(string userAnswer)
         {
-            double result = number1 * number2;
-            return result;
-        }
-
-        public double DivideNumbers(double number1, double number2)
-        {
-            double result = number1 / number2;
-            return result;
+            if (this.Answer.CompareTo(userAnswer) == 0)
+            {
+                this.Correct = true;
+            }
+            else
+            {
+                this.Correct = false;
+            }
+            this.Graded = true;
         }
     }
 }
