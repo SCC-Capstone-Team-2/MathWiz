@@ -28,10 +28,5 @@ namespace MathWiz.Controllers
             Assignment assn = AssignmentEndpoint.GetAssignmentById(assignmentId);
             return View(assn);
         }
-
-        public ActionResult CreateAssignment()
-        {
-            return View();
-        }
     }
 }
