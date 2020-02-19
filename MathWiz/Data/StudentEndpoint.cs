@@ -25,5 +25,10 @@ namespace MathWiz.Data
             }
         }
 
+        public void UpdateStudent(Student student)
+        {
+
+        }
+
     }
 }

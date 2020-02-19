@@ -59,5 +59,33 @@ namespace MathWiz.Data
             }
         }
 
+        public static List<Assignment> GetAllAssignments()
+        {
+            List<Assignment> assignments = new List<Assignment>();
+            string query = "SELECT * FROM Assignment";
+            using(SqlConnection conn = Database.getInstance())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataReader results = cmd.ExecuteReader();
+                if(results.HasRows)
+                {
+                    while(results.Read())
+                    {
+                        int AssignmentId = results.GetInt32(0);
+                        string AssignmentName = results.GetString(1);
+                        int AssignmentType = results.GetInt32(2);
+                        DateTime startTimestamp = results.GetDateTime(3);
+                        DateTime endTimestamp = results.GetDateTime(4);
+                        DateTime dueBy = results.GetDateTime(5);
+                        //TODO: add in other db fields to the assignment model
+                        Assignment assn = new Assignment(AssignmentName, AssignmentType, dueBy);
+                        assignments.Add(assn);
+                    }
+                }
+            }
+            return assignments;
+        }
+
     }
 }

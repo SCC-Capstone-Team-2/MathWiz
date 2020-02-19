@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MathWiz.Data;
+using MathWiz.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,18 +15,18 @@ namespace MathWiz.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult ViewAssignments()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            List<Assignment> assignments = AssignmentEndpoint.GetAllAssignments();
+            return View(assignments);
         }
 
-        public ActionResult TakeAssignment()
+        [HttpGet]
+        public ActionResult TakeAssignment(int assignmentId)
         {
-            ViewBag.Message = "Your Assignment";
-
-            return View();
+            Assignment assn = AssignmentEndpoint.GetAssignmentById(assignmentId);
+            return View(assn);
         }
     }
 }
