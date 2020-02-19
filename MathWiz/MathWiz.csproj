@@ -151,6 +151,7 @@
     <Compile Include="Database.cs" />
     <Compile Include="Data\AssignmentEndpoint.cs" />
     <Compile Include="Data\GradeEndpoint.cs" />
+    <Compile Include="Data\ProblemEndpoint.cs" />
     <Compile Include="Data\StudentEndpoint.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
