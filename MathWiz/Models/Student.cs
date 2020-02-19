@@ -7,8 +7,9 @@ namespace MathWiz.Models
 {
     public class Student : User
     {
-        public int studentID { get; set; }
-        public string studentName { get; set; }
+        public int StudentID { get; set; }
+        public string StudentFirst { get; set; }
+        public string StudentLast { get; set; }
         public int studentLevel { get; set; }
     }
 }

@@ -1,18 +1,6 @@
-﻿@{
-    ViewBag.Title = "View Assignments";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+﻿@using MathWiz.Models;
+@model List<Assignment>
 
-
-@{ var assignments = new List<String>() { "Assignment 1", "Assignment 2", "Assignment 3" }; }
-
-
-    @foreach (string assignment in assignments)
-    {
-    <p>
-         @Html.ActionLink(@assignment, "TakeAssignment", new { assignmentName = assignment } )
-    </p>
-    }
-    
+<div class="assignmentPane">
+</div>
 

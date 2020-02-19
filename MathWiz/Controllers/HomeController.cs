@@ -29,12 +29,7 @@ namespace MathWiz.Controllers
             return View(assn);
         }
 
-        public ActionResult About()
-        {
-            return View();
-        }
-
-        public ActionResult Testimonial()
+        public ActionResult CreateAssignment()
         {
             return View();
         }
