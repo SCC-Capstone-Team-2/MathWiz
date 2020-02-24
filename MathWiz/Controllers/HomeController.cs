@@ -29,14 +29,11 @@ namespace MathWiz.Controllers
             return View(assn);
         }
 
-        public ActionResult About()
+        [HttpGet]
+        public ActionResult CreateAssignment()
         {
             return View();
         }
 
-        public ActionResult Testimonial()
-        {
-            return View();
-        }
     }
 }
