@@ -1,10 +1,22 @@
 ﻿
 @{
     ViewBag.Title = "Create Assignment";
+
+    if (IsPost)
+    {
+        string assignmentName = Request.Form["aName"];
+        int numOfProblems = Request.Form["numOfProblems"].AsInt();
+
+        <text>
+            You entered: <br />
+            Assignment Name: @assignmentName <br />
+            Number of Problems: @numOfProblems <br />
+        </text>
+    }
 }
 <h2>Create Assignment</h2>
-                        
-<form action="">
+
+<form method="post">
     <label for="aName">Assignment Name: </label><br>
     <input type="text" id="aName" name="aName" placeholder="Assignment 1"><br><br>
     <label for="aType">Assignment Type: </label><br>
@@ -20,7 +32,8 @@
 
     <label for="numOfProblems">Number of problems: (between 1 and 50):</label><br />
     <input type="number" id="numOfProblems" name="numOfProblems" min="1" max="50"><br><br>
-
+    <label for="dueDate">Due Date:</label>
+    <input type="date" id="dueDate" name="dueDate"><br /><br />
     @*<label for="pText">Problem Text: </label><br>
         <input type="text" id="pText" name="pText" placeholder="1+1"><br>
         <label for="pAnswer">Problem Answer: </label><br>
