@@ -1,0 +1,21 @@
+﻿@using MathWiz.Models
+@model Login
+<div class="formHolder">
+    <table>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.Username)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextBoxFor(m => m.Password)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Login"/>
+            </td>
+        </tr>
+    </table>
+</div>

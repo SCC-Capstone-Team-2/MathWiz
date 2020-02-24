@@ -170,7 +170,9 @@
     </Compile>
     <Compile Include="Models\Assignment.cs" />
     <Compile Include="Models\Grade.cs" />
+    <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Problem.cs" />
+    <Compile Include="Models\Registration.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\Teacher.cs" />
     <Compile Include="Models\User.cs" />
@@ -226,6 +228,8 @@
     <Content Include="Views\Home\CreateAssignment.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Testimonial.cshtml" />
+    <Content Include="Views\Home\Registration.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
