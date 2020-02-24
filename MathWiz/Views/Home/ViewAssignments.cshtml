@@ -2,5 +2,20 @@
 @model List<Assignment>
 
 <div class="assignmentPane">
+    <table>
+        <tr>
+            <th>Assignment Name</th>
+            <th>Number of Problems</th>
+        </tr>
+        <tr>
+            @foreach (Assignment assign in Model)
+            {
+                
+                <td>@assign.Name</td>
+                <td>@assign</td>
+            }
+        </tr>
+    </table>
+
 </div>
 
