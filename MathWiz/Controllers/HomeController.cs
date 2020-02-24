@@ -35,5 +35,15 @@ namespace MathWiz.Controllers
             return View();
         }
 
+        public ActionResult About()
+        {
+            return View();
+        }
+
+        public ActionResult Testimonial()
+        {
+            return View();
+        }
+
     }
 }
