@@ -10,17 +10,18 @@ namespace MathWiz.Data
     public class AssignmentEndpoint
     {
 
-        public static void AddAssignment(Assignment assn)
+        public static int AddAssignment(Assignment assn)
         {
-            string query = "INSERT INTO Assignment VALUES (@AssignmentName, @AssignmentType)";
+            string query = "INSERT INTO Assignment VALUES (@AssignmentName, @AssignmentType); SELECT SCOPE_IDENTITY();";
             using(SqlConnection conn = Database.getInstance())
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(query, conn);
                 //TODO: add in the values for these calls
-                cmd.Parameters.AddWithValue("@AssignmentName", "");
-                cmd.Parameters.AddWithValue("@AssignmentType", 0);
-                cmd.ExecuteNonQuery();
+                cmd.Parameters.AddWithValue("@AssignmentName", assn.Name);
+                cmd.Parameters.AddWithValue("@AssignmentType", assn.Type);
+                SqlDataReader result = cmd.ExecuteReader();
+                return result.GetInt32(0);
             }
         }
 
@@ -51,7 +52,7 @@ namespace MathWiz.Data
                     string AssignmentName = results.GetString(1);
                     int AssignmentType = results.GetInt32(2);
                     //TODO: populate the assignment object and return it
-                    return new Assignment();
+                    return new Assignment(AssignmentName, AssignmentID, AssignmentType);
                 } else
                 {
                     return null;
