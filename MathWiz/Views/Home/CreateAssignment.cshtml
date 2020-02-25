@@ -1,43 +1,24 @@
 ﻿
 @{
     ViewBag.Title = "Create Assignment";
-
-    if (IsPost)
-    {
-        string assignmentName = Request.Form["aName"];
-        int numOfProblems = Request.Form["numOfProblems"].AsInt();
-
-        <text>
-            You entered: <br />
-            Assignment Name: @assignmentName <br />
-            Number of Problems: @numOfProblems <br />
-        </text>
-    }
 }
 <h2>Create Assignment</h2>
 
 <form method="post">
     <label for="aName">Assignment Name: </label><br>
-    <input type="text" id="aName" name="aName" placeholder="Assignment 1"><br><br>
+    <input type="text" id="aName" name="aName" placeholder="Assignment 1" required><br><br>
     <label for="aType">Assignment Type: </label><br>
-
-    <input type="radio" id="add" name="operator" value="1">
-    <label for="add">Addition</label><br>
-    <input type="radio" id="sub" name="operator" value="2">
-    <label for="sub">Subtraction</label><br>
-    <input type="radio" id="mult" name="operator" value="3">
-    <label for="mult">Multiplication</label><br>
-    <input type="radio" id="div" name="operator" value="4">
-    <label for="div">Division</label><br><br>
-
+    <select id="aType" name="aType">
+        <option value="1">Addition</option>
+        <option value="2">Subtraction</option>
+        <option value="3">Multiplication</option>
+        <option value="4">Division</option>
+    </select>
+    <br><br>
     <label for="numOfProblems">Number of problems: (between 1 and 50):</label><br />
-    <input type="number" id="numOfProblems" name="numOfProblems" min="1" max="50"><br><br>
+    <input type="number" id="numOfProblems" name="numOfProblems" min="1" max="50" required><br><br>
     <label for="dueDate">Due Date:</label>
-    <input type="date" id="dueDate" name="dueDate"><br /><br />
-    @*<label for="pText">Problem Text: </label><br>
-        <input type="text" id="pText" name="pText" placeholder="1+1"><br>
-        <label for="pAnswer">Problem Answer: </label><br>
-        <input type="text" id="pAnswer" name="pAnswer" placeholder="2"><br><br>*@
+    <input type="date" id="dueDate" name="dueDate" required><br /><br />
     <input type="submit" value="Create Assignment">
 </form>
 

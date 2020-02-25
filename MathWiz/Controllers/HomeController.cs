@@ -35,6 +35,19 @@ namespace MathWiz.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult CreateAssignment(string aName, string aType, string numOfProblems, DateTime dueDate)
+        {
+            Assignment assignment = new Assignment(aName, null, Convert.ToInt32(aType), Convert.ToInt32(numOfProblems), dueDate);
+            AssignmentEndpoint.AddAssignment(assignment);
+            //Below is for testing purposes with grabbing values. Seems to work
+            //assignment.Name = aName;
+            //assignment.Type = Convert.ToInt32(aType);
+            //assignment.ProblemCount = Convert.ToInt32(numOfProblems);
+            //assignment.DueBy = dueDate;
+            return Content($"Assignment name: {aName}<br>Operator: {aType}<br>Number of Problems: {numOfProblems}<br>Due Date: {dueDate}");
+        }
+
         public ActionResult About()
         {
             return View();

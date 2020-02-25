@@ -57,12 +57,12 @@ namespace MathWiz.Data
                 {
                     while(results.Read())
                     {
-                        int ProblemID = results.GetFieldValue<int>(0);
-                        int ProblemType = results.GetFieldValue<int>(1);
-                        string ProblemText = results.GetFieldValue<string>(2);
-                        string ProblemAnswer = results.GetFieldValue<string>(3);
-                        Problem p = new Problem(ProblemID, ProblemText, ProblemAnswer, ProblemType);
-                        problems.Add(p);
+                        //int ProblemID = results.GetFieldValue<int>(0);
+                        //int ProblemType = results.GetFieldValue<int>(1);
+                        //string ProblemText = results.GetFieldValue<string>(2);
+                        //string ProblemAnswer = results.GetFieldValue<string>(3);
+                        //Problem p = new Problem(ProblemID, ProblemText, ProblemAnswer, ProblemType);
+                        //problems.Add(p);
                     }
                 }
             }
