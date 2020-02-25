@@ -1,6 +1,6 @@
 ﻿@using MathWiz.Models;
-@using MathWiz.Data;
-@model List<Assignment>
+@using MathWiz.Models.ViewModels;
+@model List<AssignmentViewModel>
 
 <div class="assignmentPane">
     <table>
@@ -8,14 +8,14 @@
             <th>Assignment Name</th>
             <th>Number of Problems</th>
         </tr>
-        <tr>
-            @foreach (Assignment assign in Model)
-            {
-                
-                <td>@assign.Name</td>
-                <td>@assign</td>
-            }
-        </tr>
+        @foreach (AssignmentViewModel assign in Model)
+        {
+            <tr>
+
+                <td>@assign.assignment.Name</td>
+                <td>@assign.ProblemCount</td>
+            </tr>
+        }
     </table>
 
 </div>

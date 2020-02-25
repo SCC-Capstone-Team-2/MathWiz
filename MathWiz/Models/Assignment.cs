@@ -8,7 +8,21 @@ namespace MathWiz.Models
 {
     public class Assignment
     {
-        public List<Problem> Problems { get; set; }
+        public List<Problem> Problems
+        {
+            get
+            {
+                if(this.Problems == null)
+                {
+                    this.Problems = new List<Problem>();
+                }
+                return this.Problems;
+            }
+            set
+            {
+                this.Problems = value;
+            }
+        }
         public int ID { get; set; }
         public string Name { get; set; }
         public DateTime StartTime { get; set; }
@@ -35,7 +49,7 @@ namespace MathWiz.Models
             this.Name = name;
             this.Type = type;
             this.DueBy = dueBy;
-            this.ID = AssignmentEndpoint.AddAssignment(this);
+            this.ID = Factory.assignmentEndpoint.AddAssignment(this);
             this.GenerateProblems(problemCount);
             this.Graded = false;
         }

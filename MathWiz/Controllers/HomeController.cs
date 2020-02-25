@@ -1,5 +1,6 @@
 ﻿using MathWiz.Data;
 using MathWiz.Models;
+using MathWiz.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,14 +19,22 @@ namespace MathWiz.Controllers
         [HttpGet]
         public ActionResult ViewAssignments()
         {
-            List<Assignment> assignments = AssignmentEndpoint.GetAllAssignments();
-            return View(assignments);
+            List<Assignment> assignments = Factory.assignmentEndpoint.GetAllAssignments();
+            List<AssignmentViewModel> viewModels = new List<AssignmentViewModel>();
+            foreach(Assignment assn in assignments)
+            {
+                AssignmentViewModel viewModel = new AssignmentViewModel();
+                viewModel.assignment = assn;
+                viewModel.ProblemCount = Factory.problemEndpoint.GetProblemsForAssignment(assn.ID).Count;
+                viewModels.Add(viewModel);
+            }
+            return View(viewModels);
         }
 
         [HttpGet]
         public ActionResult TakeAssignment(int assignmentId)
         {
-            Assignment assn = AssignmentEndpoint.GetAssignmentById(assignmentId);
+            Assignment assn = Factory.assignmentEndpoint.GetAssignmentById(assignmentId);
             return View(assn);
         }
 
@@ -36,10 +45,10 @@ namespace MathWiz.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateAssignment(string aName, string aType, string numOfProblems, DateTime dueDate)
+        public ActionResult CreateAssignment(string aName, int aType, int numOfProblems, DateTime dueDate)
         {
-            Assignment assignment = new Assignment(aName, null, Convert.ToInt32(aType), Convert.ToInt32(numOfProblems), dueDate);
-            AssignmentEndpoint.AddAssignment(assignment);
+            Assignment assignment = new Assignment(aName, null, aType, numOfProblems, dueDate);
+            Factory.assignmentEndpoint.AddAssignment(assignment);
             //Below is for testing purposes with grabbing values. Seems to work
             //assignment.Name = aName;
             //assignment.Type = Convert.ToInt32(aType);

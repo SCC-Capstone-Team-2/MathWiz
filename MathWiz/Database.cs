@@ -10,20 +10,16 @@ namespace MathWiz
     public class Database
     {
 
-        private static SqlConnection _db;
 
-        static Database()
+        private static SqlConnection _db = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
+
+        private Database()
         {
-            string connectionString = ConfigurationManager.AppSettings["DatabaseConnection"];
-            _db = new SqlConnection(connectionString);
+
         }
 
         public static SqlConnection getInstance()
         {
-            if(_db == null)
-            {
-                new Database();
-            }
             return _db;
         }
 
