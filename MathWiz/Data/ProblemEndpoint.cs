@@ -58,10 +58,10 @@ namespace MathWiz.Data
                 {
                     while(results.Read())
                     {
-                        int ProblemID = results.GetFieldValue<int>(0);
-                        int ProblemType = results.GetFieldValue<int>(1);
-                        string ProblemText = results.GetFieldValue<string>(2);
-                        string ProblemAnswer = results.GetFieldValue<string>(3);
+                        int ProblemID = GetFieldValue<int>(results, 0, true);
+                        int ProblemType = GetFieldValue<int>(results, 1, true);
+                        string ProblemText = GetFieldValue<string>(results, 2, true);
+                        string ProblemAnswer = GetFieldValue<string>(results, 3, true);
                         Problem p = new Problem(ProblemID, AssignmentID, ProblemText, ProblemAnswer, ProblemType);
                         problems.Add(p);
                     }

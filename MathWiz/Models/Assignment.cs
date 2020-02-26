@@ -1,6 +1,7 @@
 ﻿using MathWiz.Data;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -8,25 +9,15 @@ namespace MathWiz.Models
 {
     public class Assignment
     {
-        public List<Problem> Problems
-        {
-            get
-            {
-                if(this.Problems == null)
-                {
-                    this.Problems = new List<Problem>();
-                }
-                return this.Problems;
-            }
-            set
-            {
-                this.Problems = value;
-            }
-        }
+        public List<Problem> Problems { get; set; }
         public int ID { get; set; }
+        [Required]
         public string Name { get; set; }
+        [DataType(DataType.Date)]
         public DateTime StartTime { get; set; }
+        [DataType(DataType.Date)]
         public DateTime EndTime { get; set; }
+        [DataType(DataType.Date)]
         public DateTime? DueBy { get; set; }
         public int? Type { get; set; }
         public Boolean Graded { get; set; }
@@ -37,6 +28,7 @@ namespace MathWiz.Models
         // This constructor is used for pulling an assignment from a database
         public Assignment(int id, string name, int type, DateTime? dueBy)
         {
+            this.ID = id;
             this.Name = name;
             this.Type = type;
             this.DueBy = dueBy;

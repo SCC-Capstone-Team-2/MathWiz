@@ -1,8 +1,17 @@
-﻿
+﻿@using MathWiz.Models;
+@model Assignment
 @{
     ViewBag.Title = "Create Assignment";
 }
 <h2>Create Assignment</h2>
+
+@using (Html.BeginForm()) {
+    <table>
+        <tr>
+            @Html.LabelFor(a => a.Name)
+        </tr>
+    </table>
+}
 
 <form method="post">
     <label for="aName">Assignment Name: </label><br>

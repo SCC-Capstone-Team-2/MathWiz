@@ -24,8 +24,7 @@ namespace MathWiz.Data
                 SqlDataReader result = cmd.ExecuteReader();
                 if(result.HasRows && result.Read())
                 {
-                    Decimal resVal = result.GetFieldValue<Decimal>(0);
-                    return int.Parse(resVal.ToString());
+                    return (int)GetFieldValue<decimal>(result, 0, true);
                 }
             }
             return 0;
@@ -54,11 +53,11 @@ namespace MathWiz.Data
                 SqlDataReader results = cmd.ExecuteReader();
                 if(results.HasRows && results.Read())
                 {
-                    int AssignmentID = results.GetInt32(0);
-                    string AssignmentName = results.GetString(1);
-                    int AssignmentType = results.GetInt32(2);
+                    int AssignmentId = GetFieldValue<int>(results, 0, true);
+                    string AssignmentName = GetFieldValue<string>(results, 1, true);
+                    int AssignmentType = GetFieldValue<int>(results, 2, true);
                     //TODO: populate the assignment object and return it
-                    return new Assignment(AssignmentName, AssignmentID, AssignmentType);
+                    return new Assignment(AssignmentName, AssignmentId, AssignmentType);
                 } else
                 {
                     return null;
